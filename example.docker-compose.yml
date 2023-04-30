@@ -28,8 +28,8 @@ services:
       - '11003:11001'
       - '9837:9735'
     networks:
-      3_default:
+      1_default:
 
 networks:
-  3_default:
+  1_default:
     external: true
