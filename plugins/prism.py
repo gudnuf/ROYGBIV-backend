@@ -14,10 +14,6 @@ def createPrism(destination, amount, request, plugin):
     except RpcError as e:
         print(e)
 
-
-
-#plugin.add_option('greeting', 'Hello', 'The greeting I should use.')
-
 @plugin.subscribe("connect")
 def on_connect(plugin, id, address, **kwargs):
     plugin.log("Received connect event for peer {}".format(id))
