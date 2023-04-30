@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
 import time
-from pyln.client import Plugin # We import `Plugin` from the `pyln-client` pip package, which does all the hard work for us
-
+from pyln.client import Millisatoshi, Plugin, RpcError
 plugin = Plugin() # This is our plugin's handle
 
 @plugin.init() # Decorator to define a callback once the `init` method call has successfully completed
 def init(options, configuration, plugin, **kwargs):
-    plugin.log("Plugin helloworld.py initialized")
+    plugin.log("Plugin prism.py initialized")
 
-@plugin.method("hello")
-def hello(plugin, name="world"):
-  greeting = 'hello'
-  s = '{} {}'.format(greeting, name)
-  plugin.log(s)
-  return s
+@plugin.method("prism")
+def createPrism(destination, amount, request, plugin):
+    try:
+        print('hello')
+    except RpcError as e:
+        print(e)
 
-plugin.add_option('greeting', 'Hello', 'The greeting I should use.')
+
+
+#plugin.add_option('greeting', 'Hello', 'The greeting I should use.')
 
 @plugin.subscribe("connect")
 def on_connect(plugin, id, address, **kwargs):
