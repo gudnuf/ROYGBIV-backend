@@ -11,7 +11,7 @@ services:
       sh -c "pip install pyln-client && lightningd --alias=alice --addr=alice --addr=0.0.0.0:9735 --network=regtest
       --bitcoin-rpcuser=polaruser --bitcoin-rpcpassword=polarpass
       --bitcoin-rpcconnect=polar-n3-backend1 --bitcoin-rpcport=18443
-      --log-level=debug --dev-bitcoind-poll=2 --dev-fast-gossip
+      --log-level=debug --dev-bitcoind-poll=2 --dev-fast-gossip --experimental-offers
       --grpc-port=11001 --plugin=/plugins/prism.py"
     restart: always
     volumes:
